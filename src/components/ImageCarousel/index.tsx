@@ -1,15 +1,22 @@
-import React, {useState} from 'react';
-import { 
-  View, 
-  Image, 
-  FlatList, 
+import React, {useState, useCallback} from 'react';
+import {
+  View,
+  Image,
+  FlatList,
   StyleSheet,
-  useWindowDimensions 
+  useWindowDimensions,
 } from 'react-native';
 
-const ImageCarousel = ({ images }: {images: [string]}) => {
-  const [activeIndex, setActiveIndex] = useState(1);
+const ImageCarousel = ({images}: {images: string[]}) => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const windowWidth = useWindowDimensions().width;
+
+  const onFlatlistUpdate = useCallback(({viewableItems}) => {
+    if (viewableItems.length > 0) {
+      setActiveIndex(viewableItems[0].index || 0);
+    }
+    console.log(viewableItems);
+  }, []);
 
   return (
     <View style={styles.root}>
@@ -18,7 +25,7 @@ const ImageCarousel = ({ images }: {images: [string]}) => {
         renderItem={({item}) => (
           <Image
             style={[styles.image, {width: windowWidth - 40}]}
-            source={{uri: item}} 
+            source={{uri: item}}
           />
         )}
         horizontal
@@ -29,9 +36,7 @@ const ImageCarousel = ({ images }: {images: [string]}) => {
         viewabilityConfig={{
           viewAreaCoveragePercentThreshold: 50,
         }}
-        onViewableItemsChanged={({ viewableItems }) => {
-          console.log(viewableItems);
-        }}
+        onViewableItemsChanged={onFlatlistUpdate}
       />
 
       <View style={styles.dots}>
@@ -41,19 +46,17 @@ const ImageCarousel = ({ images }: {images: [string]}) => {
               styles.dot,
               {
                 backgroundColor: index === activeIndex ? '#c9c9c9' : '#ededed',
-              }
-            ]} />
+              },
+            ]}
+          />
         ))}
       </View>
-
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  root: {
-
-  },
+  root: {},
   image: {
     margin: 10,
     height: 250,
@@ -71,8 +74,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ededed',
     borderColor: '#c9c9c9',
     margin: 5,
-  }
-})
-
+  },
+});
 
 export default ImageCarousel;
