@@ -1,0 +1,73 @@
+type Product @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  title: String!
+  description: String
+  image: String!
+  images: [String!]!
+  options: [String!]
+
+  avgRating: Float
+  ratings: Int
+
+  price: Float!
+  oldPrice: Float
+}
+
+type CartProduct @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  userSub: String!
+  quantity: Int!
+  option: String
+
+  productID: ID!
+  product: Product @connection(fields: ["productID"])
+}
+
+type OrderProduct @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  quantity: Int!
+  option: String
+  
+  productID: ID!
+  product: Product @connection(fields: ["productID"])
+
+  orderID: ID!
+  order: Order @connection(fields: ["orderID"])
+}
+
+type Order @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  userSub: String!
+
+  fullName: String!
+  phoneNumber: String
+  country: String
+  city: String
+  address: String
+}
+
+# type Order @model {
+#   id: ID!
+#   userSub: String!
+# }
+
+# type Blog @model {
+#   id: ID!
+#   name: String!
+#   posts: [Post] @connection(keyName: "byBlog", fields: ["id"])
+# }
+
+# type Post @model @key(name: "byBlog", fields: ["blogID"]) {
+#   id: ID!
+#   title: String!
+#   blogID: ID!
+#   blog: Blog @connection(fields: ["blogID"])
+#   comments: [Comment] @connection(keyName: "byPost", fields: ["id"])
+# }
+
+# type Comment @model @key(name: "byPost", fields: ["postID", "content"]) {
+#   id: ID!
+#   postID: ID!
+#   post: Post @connection(fields: ["postID"])
+#   content: String!
+# }
