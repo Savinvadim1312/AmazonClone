@@ -10,6 +10,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {View, StatusBar, useColorScheme} from 'react-native';
+import {StripeProvider} from '@stripe/stripe-react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Router from './src/router';
@@ -30,7 +31,9 @@ const App = () => {
   return (
     <View style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Router />
+      <StripeProvider publishableKey="pk_test_51IqIfWA2WcfjP4nohlwR7PdK6SEeIt5eenVLWcrduRWk5IlG9WSid3GFZiItmJS4de56nrynA3hblwhrW7FVGED500vznukyss">
+        <Router />
+      </StripeProvider>
     </View>
   );
 };

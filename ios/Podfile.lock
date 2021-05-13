@@ -312,6 +312,12 @@ PODS:
     - React-Core
   - RNVectorIcons (8.1.0):
     - React-Core
+  - Stripe (21.5.1):
+    - Stripe/Stripe3DS2 (= 21.5.1)
+  - stripe-react-native (0.1.0):
+    - React
+    - Stripe (~> 21.5.1)
+  - Stripe/Stripe3DS2 (21.5.1)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -353,11 +359,13 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - "stripe-react-native (from `../node_modules/@stripe/stripe-react-native`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - boost-for-react-native
+    - Stripe
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -432,6 +440,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  stripe-react-native:
+    :path: "../node_modules/@stripe/stripe-react-native"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -439,7 +449,7 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   FBLazyVector: 49cbe4b43e445b06bf29199b6ad2057649e4c8f5
-  FBReactNativeSpec: 8a97de2577538ef312a843da00f8ad76cd68efbc
+  FBReactNativeSpec: 29aacae78c40a032ebbe25b876caf5bec80f5956
   glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
   RCT-Folly: ec7a233ccc97cc556cf7237f0db1ff65b986f27c
   RCTRequired: 2f8cb5b7533219bf4218a045f92768129cf7050a
@@ -473,8 +483,10 @@ SPEC CHECKSUMS:
   RNReanimated: b8c8004b43446e3c2709fe64b2b41072f87428ad
   RNScreens: bd1523c3bde7069b8e958e5a16e1fc7722ad0bdd
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
+  Stripe: 515db5536fd659b5d79a0898ce1b882b61ab597e
+  stripe-react-native: e35c84fdbe5d0135bc26ce5a28d519157d825b60
   Yoga: 8c8436d4171c87504c648ae23b1d81242bdf3bbf
 
-PODFILE CHECKSUM: 606db3ff8625327260f17ce637781559f867bdad
+PODFILE CHECKSUM: 8b793d19218f3ce56da88e122b6146d48dc26fa5
 
 COCOAPODS: 1.10.1

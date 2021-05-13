@@ -16,5 +16,33 @@
         "amazonclone85a249f8": {}
       }
     }
+  },
+  "stripe": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amazonclone-stripe-145433-authRole",
+      "UnauthRoleArn": "arn:aws:iam::704219588443:role/amplify-amazonclone-stripe-145433-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::704219588443:role/amplify-amazonclone-stripe-145433-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-amazonclone-stripe-145433-deployment",
+      "UnauthRoleName": "amplify-amazonclone-stripe-145433-unauthRole",
+      "StackName": "amplify-amazonclone-stripe-145433",
+      "StackId": "arn:aws:cloudformation:eu-west-1:704219588443:stack/amplify-amazonclone-stripe-145433/c041d710-b3f2-11eb-aeab-0a7e1bb3ccfd",
+      "AmplifyAppId": "d3awaedkjpr3et"
+    },
+    "categories": {
+      "auth": {
+        "amazonclone85a249f8": {}
+      },
+      "function": {
+        "CreatePaymentIntent": {
+          "deploymentBucketName": "amplify-amazonclone-stripe-145433-deployment",
+          "s3Key": "amplify-builds/CreatePaymentIntent-6d514779356731756c44-build.zip"
+        },
+        "StripeWebhook": {
+          "deploymentBucketName": "amplify-amazonclone-stripe-145433-deployment",
+          "s3Key": "amplify-builds/StripeWebhook-2f6b6f376b4d44596d66-build.zip"
+        }
+      }
+    }
   }
 }

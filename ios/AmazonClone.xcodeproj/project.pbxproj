@@ -14,6 +14,7 @@
 		1995C1A3800ACECEFEFF8FC7 /* libPods-AmazonClone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E99090E250E7C8A44A3E672E /* libPods-AmazonClone.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A27BC9B5FE1A556D17341025 /* libPods-AmazonClone-AmazonCloneTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B48443E53E86B6EB5756ED6D /* libPods-AmazonClone-AmazonCloneTests.a */; };
+		DD018FB1264D73DD00FDB2DD /* Fix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD018FB0264D73DD00FDB2DD /* Fix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AmazonClone/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B30EC567909F63B1ADD79077 /* Pods-AmazonClone-AmazonCloneTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazonClone-AmazonCloneTests.release.xcconfig"; path = "Target Support Files/Pods-AmazonClone-AmazonCloneTests/Pods-AmazonClone-AmazonCloneTests.release.xcconfig"; sourceTree = "<group>"; };
 		B48443E53E86B6EB5756ED6D /* libPods-AmazonClone-AmazonCloneTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmazonClone-AmazonCloneTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD018FAF264D73DC00FDB2DD /* AmazonClone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AmazonClone-Bridging-Header.h"; sourceTree = "<group>"; };
+		DD018FB0264D73DD00FDB2DD /* Fix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fix.swift; sourceTree = "<group>"; };
 		E00C534942D7F2F4D6B4F79C /* Pods-AmazonClone-AmazonCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmazonClone-AmazonCloneTests.debug.xcconfig"; path = "Target Support Files/Pods-AmazonClone-AmazonCloneTests/Pods-AmazonClone-AmazonCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E99090E250E7C8A44A3E672E /* libPods-AmazonClone.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AmazonClone.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -116,12 +119,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				DD018FB0264D73DD00FDB2DD /* Fix.swift */,
 				13B07FAE1A68108700A75B9A /* AmazonClone */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AmazonCloneTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E2FF9136F0ED384F825C64D1 /* Pods */,
+				DD018FAF264D73DC00FDB2DD /* AmazonClone-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -145,7 +150,6 @@
 				E00C534942D7F2F4D6B4F79C /* Pods-AmazonClone-AmazonCloneTests.debug.xcconfig */,
 				B30EC567909F63B1ADD79077 /* Pods-AmazonClone-AmazonCloneTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,7 +210,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -376,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				DD018FB1264D73DD00FDB2DD /* Fix.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,13 +400,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E00C534942D7F2F4D6B4F79C /* Pods-AmazonClone-AmazonCloneTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = AmazonCloneTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,10 +428,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B30EC567909F63B1ADD79077 /* Pods-AmazonClone-AmazonCloneTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = AmazonCloneTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +469,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AmazonClone;
+				SWIFT_OBJC_BRIDGING_HEADER = "AmazonClone-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -487,6 +495,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = AmazonClone;
+				SWIFT_OBJC_BRIDGING_HEADER = "AmazonClone-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -541,14 +550,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -599,14 +607,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
