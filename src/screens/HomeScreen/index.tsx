@@ -18,6 +18,7 @@ const HomeScreen = ({searchValue}: {searchValue: string}) => {
       {/* Render Product Componet */}
       <FlatList
         data={products}
+        /*@ts-ignore  */
         renderItem={({item}) => <ProductItem item={item} />}
         showsVerticalScrollIndicator={false}
       />

@@ -15,12 +15,12 @@ import {StripeProvider} from '@stripe/stripe-react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Router from './src/router';
 
-import Amplify, {Auth} from 'aws-amplify';
+import {Amplify} from 'aws-amplify';
+import awsconfig from './src/aws-exports';
 import {withAuthenticator} from 'aws-amplify-react-native';
+import HomeScreen from './src/screens/HomeScreen';
 
-import config from './src/aws-exports';
-Amplify.configure(config);
-
+Amplify.configure(awsconfig);
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
