@@ -46,6 +46,7 @@ const HomeStack = () => {
         header: () => (
           <HeaderComponent
             searchValue={searchValue}
+            //@ts-ignore
             setSearchValue={setSearchValue}
           />
         ),

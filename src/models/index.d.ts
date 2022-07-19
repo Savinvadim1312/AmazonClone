@@ -1,58 +1,63 @@
-import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplify/datastore";
+import {
+  ModelInit,
+  MutableModel,
+  PersistentModelConstructor,
+} from '@aws-amplify/datastore';
 
+type ProductMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+};
 
-
-export declare class PaymentIntent {
-  readonly clientSecret: string;
-  constructor(init: ModelInit<PaymentIntent>);
-}
+type CartProductMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+};
 
 export declare class Product {
   readonly id: string;
   readonly title: string;
-  readonly description?: string;
+  readonly description?: string | null;
   readonly image: string;
   readonly images: string[];
-  readonly options?: string[];
-  readonly avgRating?: number;
-  readonly ratings?: number;
+  readonly options?: string[] | null;
+  readonly avgRating?: number | null;
+  readonly ratings?: number | null;
   readonly price: number;
-  readonly oldPrice?: number;
-  constructor(init: ModelInit<Product>);
-  static copyOf(source: Product, mutator: (draft: MutableModel<Product>) => MutableModel<Product> | void): Product;
+  readonly oldPrice?: number | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(
+    init: //@ts-ignore
+    ModelInit<Product, ProductMetaData>,
+  );
+  static copyOf(
+    source: Product,
+    mutator: (
+      draft: //@ts-ignore
+      MutableModel<Product, ProductMetaData>,
+    ) => //@ts-ignore
+    MutableModel<Product, ProductMetaData> | void,
+  ): Product;
 }
 
 export declare class CartProduct {
   readonly id: string;
   readonly userSub: string;
   readonly quantity: number;
-  readonly option?: string;
+  readonly option?: string | null;
   readonly productID: string;
-  readonly product?: Product;
-  constructor(init: ModelInit<CartProduct>);
-  static copyOf(source: CartProduct, mutator: (draft: MutableModel<CartProduct>) => MutableModel<CartProduct> | void): CartProduct;
-}
-
-export declare class OrderProduct {
-  readonly id: string;
-  readonly quantity: number;
-  readonly option?: string;
-  readonly productID: string;
-  readonly product?: Product;
-  readonly orderID: string;
-  readonly order?: Order;
-  constructor(init: ModelInit<OrderProduct>);
-  static copyOf(source: OrderProduct, mutator: (draft: MutableModel<OrderProduct>) => MutableModel<OrderProduct> | void): OrderProduct;
-}
-
-export declare class Order {
-  readonly id: string;
-  readonly userSub: string;
-  readonly fullName: string;
-  readonly phoneNumber?: string;
-  readonly country?: string;
-  readonly city?: string;
-  readonly address?: string;
-  constructor(init: ModelInit<Order>);
-  static copyOf(source: Order, mutator: (draft: MutableModel<Order>) => MutableModel<Order> | void): Order;
+  readonly product?: Product | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(
+    //@ts-ignore
+    init: ModelInit<CartProduct, CartProductMetaData>,
+  );
+  static copyOf(
+    source: CartProduct,
+    mutator: (
+      //@ts-ignore
+      draft: MutableModel<CartProduct, CartProductMetaData>,
+    ) => //@ts-ignore
+    MutableModel<CartProduct, CartProductMetaData> | void,
+  ): CartProduct;
 }

@@ -35,7 +35,10 @@ const AddressScreen = () => {
   const {initPaymentSheet, presentPaymentSheet} = useStripe();
   const navigation = useNavigation();
   const route = useRoute();
-  const amount = Math.floor(route.params?.totalPrice * 100 || 0);
+  const amount = Math.floor(
+    //@ts-ignore
+    route.params?.totalPrice * 100 || 0,
+  );
 
   useEffect(() => {
     fetchPaymentIntent();
@@ -51,6 +54,7 @@ const AddressScreen = () => {
     const response = await API.graphql(
       graphqlOperation(createPaymentIntent, {amount}),
     );
+    //@ts-ignore
     setClientSecret(response.data.createPaymentIntent.clientSecret);
   };
 
@@ -63,6 +67,7 @@ const AddressScreen = () => {
     });
     console.log('success');
     if (error) {
+      //@ts-ignore
       Alert.alert(error);
     }
   };
@@ -155,9 +160,12 @@ const AddressScreen = () => {
       <ScrollView style={styles.root}>
         <View style={styles.row}>
           <Picker selectedValue={country} onValueChange={setCountry}>
-            {countries.map(country => (
-              <Picker.Item value={country.code} label={country.name} />
-            ))}
+            {countries.map(
+              //@ts-ignore
+              country => (
+                <Picker.Item value={country.code} label={country.name} />
+              ),
+            )}
           </Picker>
         </View>
 

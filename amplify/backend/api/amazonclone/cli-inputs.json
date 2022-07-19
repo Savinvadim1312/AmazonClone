@@ -3,10 +3,21 @@
   "serviceConfiguration": {
     "apiName": "amazonclone",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/Users/asimeir/code/React-Native/AmazonClone/amplify/backend/api/amazonclone/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-9c93ef98-a97b-453d-8244-91d28be9fc21/amplify/backend/api/amazonclone/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
-      "expirationTime": 7
-    }
+      "keyDescription": "api key description",
+      "expirationTime": 30
+    },
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AWS_IAM"
+      }
+    ]
   }
 }
