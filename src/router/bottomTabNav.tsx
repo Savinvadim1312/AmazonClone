@@ -5,6 +5,7 @@ import MenuScreen from '../screens/MenuScreen';
 import Entypo from 'react-native-vector-icons/Entypo';
 import HomeStack from './HomeStack';
 import ShoppingCartStack from './ShoppingCartStack';
+import WhoSpoileScreen from '../screens/WhoSpoileScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +32,15 @@ const BottomTabNav = () => {
         options={{
           tabBarIcon: ({color}) => (
             <Entypo name="user" color={color} size={25} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        component={WhoSpoileScreen}
+        name="spoiled"
+        options={{
+          tabBarIcon: ({color}) => (
+            <Entypo name="setup" color={color} size={25} />
           ),
         }}
       />
